@@ -1,0 +1,69 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Number of schools by state and territory",
+    "width": 500,
+    "height": 480,
+    "data": {
+        "url": "https://raw.githubusercontent.com/rpah0004/3179_A2/refs/heads/main/graph_2_choroplethmap/ne_10m_admin_1_states_provinces.json",
+        "format": {
+            "type": "topojson",
+            "feature": "australia_map"
+        }
+    },
+    "projection": {
+        "type": "mercator",
+        "center": [134, -27],
+        "scale": 640,
+        "translate": [250, 240]
+    },
+    "transform": [
+        {
+            "filter": "(datum.properties.admin || datum.properties.ADMIN) === 'Australia'"
+        },
+        {
+            "calculate": "datum.properties.name || datum.properties.NAME",
+            "as": "state"
+        },
+        {
+
+            "lookup": "state",
+            "from": {
+                "data": {
+                    "url": "https://raw.githubusercontent.com/rpah0004/3179_A2/refs/heads/main/Data/Schools%20by%20state.csv"
+                },
+                "key": "State",
+                "fields": ["Schools"]
+            }
+        }
+    ],
+    "mark": {
+        "type": "geoshape",
+        "stroke": "white"
+    },
+    "encoding": {
+        "color": {
+            "field": "Schools",
+            "type": "quantitative",
+            "scale": {
+                "type": "sqrt",
+                "scheme": "oranges"
+            },
+            "legend": {
+                "title": "Number of Schools",
+                "orient": "right"
+            }
+        },
+        "tooltip": [
+            {
+                "field": "state",
+                "type": "nominal",
+                "title": "State"
+            },
+            {
+                "field": "Schools",
+                "type": "quantitative",
+                "title": "Number of Schools"
+            }
+        ]
+    }
+}
