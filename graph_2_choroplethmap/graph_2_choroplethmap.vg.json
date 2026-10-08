@@ -3,6 +3,12 @@
     "title": "Number of schools by state and territory",
     "width": 500,
     "height": 480,
+    "projection": {
+        "type": "mercator",
+        "center": [134, -27],
+        "scale": 640,
+        "translate": [250, 240]
+    },
     "data": {
         "url": "https://raw.githubusercontent.com/rpah0004/3179_A2/refs/heads/main/graph_2_choroplethmap/ne_10m_admin_1_states_provinces.json",
         "format": {
@@ -10,23 +16,9 @@
             "feature": "australia_map"
         }
     },
-    "projection": {
-        "type": "mercator",
-        "center": [134, -27],
-        "scale": 640,
-        "translate": [250, 240]
-    },
     "transform": [
         {
-            "filter": "(datum.properties.admin || datum.properties.ADMIN) === 'Australia'"
-        },
-        {
-            "calculate": "datum.properties.name || datum.properties.NAME",
-            "as": "state"
-        },
-        {
-
-            "lookup": "state",
+            "lookup": "properties.name",
             "from": {
                 "data": {
                     "url": "https://raw.githubusercontent.com/rpah0004/3179_A2/refs/heads/main/Data/Schools%20by%20state.csv"
@@ -47,15 +39,11 @@
             "scale": {
                 "type": "sqrt",
                 "scheme": "oranges"
-            },
-            "legend": {
-                "title": "Number of Schools",
-                "orient": "right"
-            }
+            }          
         },
         "tooltip": [
             {
-                "field": "state",
+                "field": "properties.name",
                 "type": "nominal",
                 "title": "State"
             },

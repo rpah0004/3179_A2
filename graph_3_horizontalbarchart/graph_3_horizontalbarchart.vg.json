@@ -1,0 +1,27 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Total number of schools by state and territory",
+    "width": 380,
+    "height": 320,
+    "data": {
+        "url": "https://raw.githubusercontent.com/rpah0004/3179_A2/refs/heads/main/Data/Schools%20by%20state.csv"
+    },
+    "mark": {
+        "type": "bar",
+        "color": "#e6550d",
+        "tooltip": true
+    },
+    "encoding": {
+        "x": {
+            "field": "Schools",
+            "type": "quantitative",
+            "title": "Number of Schools"
+        },
+        "y": {
+            "field": "State",
+            "type": "nominal",
+            "sort": "-x",
+            "title": null
+        }
+    }
+}
