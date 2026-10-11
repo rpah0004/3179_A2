@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School Types Across Australia</title>
+
+    <!-- Vega -->
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="page">
+
+        <div class="header">
+            <p class="author">Rebecca Pahljina 34960813, Studio 16 </p>
+            <h1>School Types Across Australia</h1>
+            <p class="intro">Where Australia's schools are, and how many each state and territory has.</p>
+        </div>
+
+        <h2>Where are Australia's Schools?</h2>
+        <div class="pure-g">
+            <div class="pure-u-1-3 panel">
+                <div id="symbol_map" class="chart"></div>
+            </div>
+            <div class="pure-u-1-3 panel">
+                <div id="choropleth_map" class="chart"></div>
+            </div>
+            <div class="pure-u-1-3 panel">
+                <div id="bar_chart" class="chart"></div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        var vg_1 = "graph_1_symbolmap/js/graph_1_symbolmap.vg.json";
+        var vg_2 = "graph_2_choroplethmap/graph_2_choroplethmap.vg.json";
+        var vg_3 = "graph_3_horizontalbarchart/graph_3_horizontalbarchart.vg.json";
+
+        vegaEmbed("#symbol_map", vg_1, { "actions": false }).then(function (result) {
+            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+ 
+        vegaEmbed("#choropleth_map", vg_2, { "actions": false }).then(function (result) {
+            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+ 
+        vegaEmbed("#bar_chart", vg_3, { "actions": false }).then(function (result) {
+            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+    </script>
+
+</body>
+</html>

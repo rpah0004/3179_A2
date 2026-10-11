@@ -1,6 +1,6 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": "Total number of schools by state and territory",
+    "title": "Total schools by state and territory",
     "width": "container",
     "height": 330,
     "data": {

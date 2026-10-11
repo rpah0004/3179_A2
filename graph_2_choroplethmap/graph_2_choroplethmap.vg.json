@@ -4,10 +4,7 @@
     "width": "container",
     "height": 360,
     "projection": {
-        "type": "mercator",
-        "center": [134, -27],
-        "scale": 640,
-        "translate": [250, 240]
+        "type": "mercator"
     },
     "data": {
         "url": "https://raw.githubusercontent.com/rpah0004/3179_A2/refs/heads/main/graph_2_choroplethmap/ne_10m_admin_1_states_provinces.json",

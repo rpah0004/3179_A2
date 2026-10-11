@@ -1,0 +1,60 @@
+body * {
+    font-family: 'DM Sans', sans-serif;
+}
+
+body {
+    background-color: white;
+    margin: 0;
+}
+
+.page {
+    max-width: 1500px;
+    margin: auto;
+    padding: 20px 30px;
+}
+
+.header {
+    border-bottom: 2px solid black;
+}
+
+.author {
+    margin: 0;
+    font-size: 14px;
+    color: gray;
+}
+
+h1 {
+    text-align: center;
+    font-size: 42px;
+    margin: 0;
+}
+
+.intro {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 25px;
+}
+
+h2 {
+    border-bottom: 1px solid black;
+    padding: 10px 0;
+    margin: 0;
+}
+
+.pure-g {
+    border-bottom: 2px solid black;
+}
+
+.panel {
+    box-sizing: border-box;
+    padding: 15px;
+    border-left: 1px solid black;
+}
+
+.panel:first-child {
+    border-left: none;
+}
+
+.chart {
+    width: 100%;
+}
