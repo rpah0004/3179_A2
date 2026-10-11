@@ -1,8 +1,8 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "title": "Number of schools by state and territory",
-    "width": 500,
-    "height": 480,
+    "width": "container",
+    "height": 360,
     "projection": {
         "type": "mercator",
         "center": [134, -27],

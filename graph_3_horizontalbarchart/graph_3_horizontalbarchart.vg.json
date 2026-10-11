@@ -1,8 +1,8 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "title": "Total number of schools by state and territory",
-    "width": 380,
-    "height": 320,
+    "width": "container",
+    "height": 330,
     "data": {
         "url": "https://raw.githubusercontent.com/rpah0004/3179_A2/refs/heads/main/Data/Schools%20by%20state.csv"
     },
