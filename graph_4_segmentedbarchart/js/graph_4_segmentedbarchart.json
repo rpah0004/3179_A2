@@ -1,0 +1,63 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "School sectors by state and territory",
+    "width":"container",
+    "height": 330,
+    "data": {
+        "url": "https://raw.githubusercontent.com/rpah0004/3179_A2/refs/heads/main/Data/School%20Location%202025.csv"
+    },
+    "transform": [
+        {
+            "calculate": "indexof(['Government', 'Catholic', 'Independent'], datum.School_Sector)", "as": "Sector_Order"
+
+        }
+    ],
+    "mark": "bar",
+    "encoding": {
+        "x":{
+            "aggregate": "count",
+            "stack": "normalize",
+            "title": "Share of Schools",
+            "axis":{
+                "format": "%",
+                "tickCount": 5
+            }
+        },
+        "y":{
+            "field": "State",
+            "type": "nominal",
+            "sort": [
+                "NSW",
+                "VIC",
+                "QLD",
+                "WA",
+                "SA",
+                "TAS",
+                "NT",
+                "ACT"
+            ],
+            "title": null
+        },
+        "color": {
+            "field": "School_Sector",
+            "type": "nominal",
+            "title": "School Sector",
+            "scale": {
+                "domain": ["Government", "Catholic", "Independent"],
+                "range": ["#1b9e77", "#d95f02", "#7570b3"]
+            },
+            "legend":{
+                "orient": "bottom"
+        }
+        },
+        "order":{
+            "field": "Sector_Order"
+        },
+        "tooltip": [
+            {"field": "State", "type": "nominal"},
+            {"field": "School_Sector", "type": "nominal", "title": "School Sector"},
+            {"aggregate": "count", "title": "Number of Schools"}
+        ]
+    }
+    
+}
