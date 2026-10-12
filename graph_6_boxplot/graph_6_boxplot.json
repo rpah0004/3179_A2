@@ -1,0 +1,50 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "School size by sector",
+    "width":"container",
+    "height": 250,
+    "data":{
+        "url": "https://raw.githubusercontent.com/rpah0004/3179_A2/refs/heads/main/Data/School%20Profile%202008-2025.csv",
+        "format": {
+            "type": "csv",
+            "parse": {
+                "Total_Enrolments": "number"
+            }
+        }
+    },
+    "transform": [
+    {
+        "filter": "datum.Calendar_Year == 2025 && isValid(datum.Total_Enrolments)"
+    }
+    ],
+    "mark": {
+        "type": "boxplot",
+        "extent": 1.5
+    },
+    "encoding": {
+        "x":{
+            "field": "Total_Enrolments",
+            "type": "quantitative",
+            "title": "Students per School"
+        },
+        "y":{
+            "field":"School_Sector",
+            "type": "nominal",
+            "sort": [
+                "Government",
+                "Catholic",
+                "Independent"
+            ],
+            "title":null
+        },
+        "color":{
+            "field":"School_Sector",
+            "type":"nominal",
+            "scale":{
+                "domain":["Government","Catholic","Independent"],
+                "range":["#1b9e77","#d95f02","#7570b3"]
+            },
+            "legend":null
+        }
+    }
+}
