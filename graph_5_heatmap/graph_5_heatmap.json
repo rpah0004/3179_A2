@@ -1,0 +1,42 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Schools by sector and type across Australia",
+    "width":"container",
+    "height": 250,
+    "data":{
+        "url": "https://raw.githubusercontent.com/rpah0004/3179_A2/refs/heads/main/Data/School%20Location%202025.csv"
+    },
+    "mark": "rect",
+    "encoding": {
+        "x": {
+            "field": "School_Type",
+            "type": "nominal",
+            "sort": ["Primary", "Secondary", "Combined"],
+            "title": "School Type",
+            "axis": {
+                "labelAngle": 0
+            }
+        },
+        "y": {
+            "field": "School_Sector",
+            "type": "nominal",
+            "sort": ["Government", "Catholic", "Independent"],
+            "title": "School Sector"
+        },
+        "color": {
+            "aggregate": "count",
+            "type": "quantitative",
+            "title": "Number of Schools",
+            "scale": {
+                "type": "sqrt",
+                "scheme": "oranges"
+
+            }
+        },
+        "tooltip": [
+            {"field": "School_Sector", "type": "nominal", "title": "School Sector"},
+            {"field": "School_Type", "type": "nominal", "title": "School Type"},
+            {"aggregate": "count", "type": "quantitative", "title": "Number of Schools"}
+        ]
+}
+}
