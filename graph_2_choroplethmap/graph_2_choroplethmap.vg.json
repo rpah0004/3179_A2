@@ -34,8 +34,7 @@
             "field": "Schools",
             "type": "quantitative",
             "scale": {
-                "type": "sqrt",
-                "scheme": "oranges"
+                "range": ["#e0f1ff", "#0090ff"]
             }          
         },
         "tooltip": [

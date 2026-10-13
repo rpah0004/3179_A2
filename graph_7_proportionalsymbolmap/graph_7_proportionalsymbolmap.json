@@ -22,8 +22,8 @@
       ],
       "mark": {
         "type": "geoshape",
-        "fill": "lightgray",
-        "stroke": "white"
+        "fill": "white",
+        "stroke": "lightgray"
       }
     },
     {
@@ -94,11 +94,11 @@
               "Very Remote"
             ],
             "range": [
-              "#9ecae1",
-              "#6baed6",
-              "#3182bd",
-              "#08519c",
-              "#08306b"
+              "#b3deff",
+              "#66bcff",
+              "#0090ff",
+              "#0068b8",
+              "#003f70"
             ]
           }
         },

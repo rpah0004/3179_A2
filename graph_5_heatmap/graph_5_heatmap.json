@@ -28,9 +28,7 @@
             "type": "quantitative",
             "title": "Number of Schools",
             "scale": {
-                "type": "sqrt",
-                "scheme": "oranges"
-
+                "range": ["#e0f1ff", "#0090ff"]
             }
         },
         "tooltip": [

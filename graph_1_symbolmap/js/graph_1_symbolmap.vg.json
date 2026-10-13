@@ -21,8 +21,8 @@
       ],
       "mark": {
         "type": "geoshape", 
-        "fill": "lightgray", 
-        "stroke": "white"
+        "fill": "white",
+        "stroke": "lightgrey"
         }
       },
     {
@@ -52,7 +52,7 @@
           "title": "School Sector",
           "scale": {
             "domain": ["Government", "Catholic", "Independent"],
-            "range": ["#1b9e77", "#d95f02", "#7570b3"]
+            "range": ["#ffa600", "#00b3b0", "#9f35dc"]
           }
         },
         "tooltip": [

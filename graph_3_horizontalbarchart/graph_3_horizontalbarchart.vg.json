@@ -8,7 +8,7 @@
     },
     "mark": {
         "type": "bar",
-        "color": "#e6550d",
+        "color": "#3dbe12",
         "tooltip": true
     },
     "encoding": {
