@@ -1,0 +1,84 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "School sectors in remote areas",
+  "width": "container",
+  "height": 150,
+  "data": {
+    "url": "https://raw.githubusercontent.com/rpah0004/3179_A2/refs/heads/main/Data/School%20Location%202025.csv"
+  },
+  "transform": [
+    {
+      "filter": {
+        "field": "ABS_Remoteness_Area_Name",
+        "oneOf": [
+          "Remote",
+          "Very Remote"
+        ]
+      }
+    },
+    {
+      "calculate": "indexof(['Government', 'Catholic', 'Independent'], datum.School_Sector)",
+      "as": "Sector_Order"
+    }
+  ],
+  "mark": "bar",
+  "encoding": {
+    "x": {
+      "aggregate": "count",
+      "stack": "normalize",
+      "title": "Share of Schools",
+      "axis": {
+        "format": "%",
+        "tickCount": 5
+      }
+    },
+    "y": {
+      "field": "ABS_Remoteness_Area_Name",
+      "type": "nominal",
+      "sort": [
+        "Remote",
+        "Very Remote"
+      ],
+      "title": null
+    },
+    "color": {
+      "field": "School_Sector",
+      "type": "nominal",
+      "title": "School Sector",
+      "scale": {
+        "domain": [
+          "Government",
+          "Catholic",
+          "Independent"
+        ],
+        "range": [
+          "#ffa600",
+          "#00b3b0",
+          "#9f35dc"
+        ]
+      },
+      "legend": {
+        "orient": "bottom"
+      }
+    },
+    "order": {
+      "field": "Sector_Order"
+    },
+    "tooltip": [
+      {
+        "field": "ABS_Remoteness_Area_Name",
+        "type": "nominal",
+        "title": "Remoteness"
+      },
+      {
+        "field": "School_Sector",
+        "type": "nominal",
+        "title": "School Sector"
+      },
+      {
+        "aggregate": "count",
+        "title": "Number of Schools"
+      }
+    ]
+  }
+}
