@@ -1,0 +1,64 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "School size by remoteness",
+    "width":"container",
+    "height": 250,
+    "data": {
+        "url": "https://raw.githubusercontent.com/rpah0004/3179_A2/refs/heads/main/Data/School%20Profile%202008-2025.csv",
+        "format":{
+            "type": "csv",
+            "parse": {
+                "Total_Enrolments": "number"
+            }
+        }
+    },
+    "transform": [
+        {
+            "filter": "datum.Calendar_Year == 2025 && isValid(datum.Total_Enrolments)"
+        }
+    ],
+    "mark": {
+        "type": "boxplot",
+        "extent": 1.5
+    },
+    "encoding": {
+        "x":{
+            "field": "Total_Enrolments",
+            "type": "quantitative",
+            "title": "Students per School"
+        },
+        "y":{
+            "field": "Geolocation",
+            "type": "ordinal",
+            "sort": [
+                "Major Cities",
+                "Inner Regional",
+                "Outer Regional",
+                "Remote",
+                "Very Remote"
+            ],
+            "title": null
+        },
+        "color": {
+            "field": "Geolocation",
+            "type": "ordinal",
+            "scale": {
+                "domain": [
+                "Major Cities",
+                "Inner Regional",
+                "Outer Regional",
+                "Remote",
+                "Very Remote"
+                ],
+                "range": [
+                "#b3deff",
+                "#66bcff",
+                "#0090ff",
+                "#0068b8",
+                "#003f70"
+                ]
+            },
+            "legend": null
+        }
+    }
+}
