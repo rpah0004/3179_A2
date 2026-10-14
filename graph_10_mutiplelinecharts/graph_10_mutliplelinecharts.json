@@ -1,0 +1,91 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Number of schools over time",
+  "width": 300,
+  "height": 70,
+  "data": {
+    "url": "https://raw.githubusercontent.com/rpah0004/3179_A2/refs/heads/main/Data/School%20Profile%202008-2025.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "Calendar_Year": "number"
+      }
+    }
+  },
+  "mark": {
+    "type": "line",
+    "point": true
+  },
+  "encoding": {
+    "row": {
+      "field": "School_Sector",
+      "type": "nominal",
+      "title": null,
+      "sort": [
+        "Government",
+        "Catholic",
+        "Independent"
+      ]
+    },
+    "x": {
+      "field": "Calendar_Year",
+      "type": "quantitative",
+      "title": "Year",
+      "scale": {
+        "zero": false,
+        "nice": false
+      },
+      "axis": {
+        "format": "d",
+        "tickMinStep": 1
+      }
+    },
+    "y": {
+      "aggregate": "count",
+      "type": "quantitative",
+      "title": null,
+      "scale": {
+        "zero": false
+      },
+      "axis": {
+        "tickCount": 3
+      }
+    },
+    "color": {
+      "field": "School_Sector",
+      "type": "nominal",
+      "scale": {
+        "domain": [
+          "Catholic",
+          "Government",
+          "Independent"
+        ],
+        "range": [
+          "#00b3b0",
+          "#ffa600",
+          "#9f35dc"
+        ]
+      },
+      "legend": null
+    },
+    "tooltip": [
+      {
+        "field": "School_Sector",
+        "title": "Sector"
+      },
+      {
+        "field": "Calendar_Year",
+        "title": "Year"
+      },
+      {
+        "aggregate": "count",
+        "title": "Schools"
+      }
+    ]
+  },
+  "resolve": {
+    "scale": {
+      "y": "independent"
+    }
+  }
+}
