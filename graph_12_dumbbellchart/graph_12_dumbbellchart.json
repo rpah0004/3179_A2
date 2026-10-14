@@ -1,0 +1,165 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Change in sector share by state",
+    "subtitle": "Share of each state's schools in 2008 vs 2025"
+  },
+  "width": 300,
+  "height": 220,
+  "data": {
+    "url": "https://raw.githubusercontent.com/rpah0004/3179_A2/refs/heads/main/Data/School%20Profile%202008-2025.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "Calendar_Year": "number"
+      }
+    }
+  },
+  "params": [
+    {
+      "name": "Sector",
+      "value": "Independent",
+      "bind": {
+        "input": "select",
+        "options": [
+          "Government",
+          "Catholic",
+          "Independent"
+        ],
+        "name": "Sector: "
+      }
+    }
+  ],
+  "transform": [
+    {
+      "filter": "datum.Calendar_Year == 2008 || datum.Calendar_Year == 2025"
+    },
+    {
+      "aggregate": [
+        {
+          "op": "count",
+          "as": "Schools"
+        }
+      ],
+      "groupby": [
+        "State",
+        "Calendar_Year",
+        "School_Sector"
+      ]
+    },
+    {
+      "joinaggregate": [
+        {
+          "op": "sum",
+          "field": "Schools",
+          "as": "Total"
+        }
+      ],
+      "groupby": [
+        "State",
+        "Calendar_Year"
+      ]
+    },
+    {
+      "calculate": "datum.Schools / datum.Total",
+      "as": "Share"
+    },
+    {
+      "filter": "datum.School_Sector == Sector"
+    }
+  ],
+  "encoding": {
+    "y": {
+      "field": "State",
+      "type": "nominal",
+      "title": null,
+      "sort": [
+        "NSW",
+        "VIC",
+        "QLD",
+        "WA",
+        "SA",
+        "TAS",
+        "ACT",
+        "NT"
+      ]
+    },
+    "x": {
+      "field": "Share",
+      "type": "quantitative",
+      "title": "Share of schools",
+      "scale": {
+        "zero": false
+      },
+      "axis": {
+        "format": "%"
+      }
+    }
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "rule",
+        "color": "#aaaaaa",
+        "strokeWidth": 2
+      },
+      "encoding": {
+        "x": {
+          "aggregate": "min",
+          "field": "Share"
+        },
+        "x2": {
+          "aggregate": "max",
+          "field": "Share"
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "circle",
+        "size": 100,
+        "opacity": 1
+      },
+      "encoding": {
+        "color": {
+          "field": "Calendar_Year",
+          "type": "nominal",
+          "title": "Year",
+          "scale": {
+            "domain": [
+              2008,
+              2025
+            ],
+            "range": [
+              "#3dbe12",
+              "#0090ff"
+            ]
+          }
+        },
+        "tooltip": [
+          {
+            "field": "State",
+            "title": "State"
+          },
+          {
+            "field": "School_Sector",
+            "title": "Sector"
+          },
+          {
+            "field": "Calendar_Year",
+            "title": "Year"
+          },
+          {
+            "field": "Schools",
+            "title": "Schools"
+          },
+          {
+            "field": "Share",
+            "title": "Share",
+            "format": ".1%"
+          }
+        ]
+      }
+    }
+  ]
+}
