@@ -1,0 +1,76 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Student enrolments by sector",
+  "width": "container",
+  "height": 250,
+  "data": {
+    "url": "https://raw.githubusercontent.com/rpah0004/3179_A2/refs/heads/main/Data/School%20Profile%202008-2025.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "Calendar_Year": "number",
+        "Total_Enrolments": "number"
+      }
+    }
+  },
+  "mark": {
+    "type": "area",
+    "line": true,
+    "point": true,
+    "opacity": 0.35
+  },
+  "encoding": {
+    "x": {
+      "field": "Calendar_Year",
+      "type": "quantitative",
+      "title": "Year",
+      "scale": {
+        "zero": false,
+        "nice": false
+      },
+      "axis": {
+        "format": "d",
+        "tickMinStep": 1
+      }
+    },
+    "y": {
+      "aggregate": "sum",
+      "field": "Total_Enrolments",
+      "type": "quantitative",
+      "title": "Students"
+    },
+    "color": {
+      "field": "School_Sector",
+      "type": "nominal",
+      "title": "Sector",
+      "scale": {
+        "domain": [
+          "Catholic",
+          "Government",
+          "Independent"
+        ],
+        "range": [
+          "#00b3b0",
+          "#ffa600",
+          "#9f35dc"
+        ]
+      }
+    },
+    "tooltip": [
+      {
+        "field": "School_Sector",
+        "title": "Sector"
+      },
+      {
+        "field": "Calendar_Year",
+        "title": "Year"
+      },
+      {
+        "aggregate": "sum",
+        "field": "Total_Enrolments",
+        "title": "Students",
+        "format": ","
+      }
+    ]
+  }
+}
