@@ -2,7 +2,7 @@
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "title": "Schools by sector and type across Australia",
     "width":"container",
-    "height": 250,
+    "height": 330,
     "data":{
         "url": "https://raw.githubusercontent.com/rpah0004/3179_A2/refs/heads/main/Data/School%20Location%202025.csv"
     },

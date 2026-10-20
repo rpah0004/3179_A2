@@ -1,7 +1,7 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "width": "container",
-    "height": 360,
+    "height": 550,
     "title": "Map of all Australian schools",
     "projection": {
         "type": "mercator"

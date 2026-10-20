@@ -25,39 +25,202 @@
     <div class="page">
 
         <div class="header">
-            <p class="author">Rebecca Pahljina 34960813, Studio 16 </p>
+            <p class="author">Rebecca Pahljina 34960813, FIT3179, Studio 16</p>
             <h1>School Types Across Australia</h1>
-            <p class="intro">Where Australia's schools are, and how many each state and territory has.</p>
+            <p class="subtitle">Where are Australia's schools, who runs them, and how is this changing?</p>
+            <p class="intro">Australia's schools vary across states, sectors and levels of remoteness. This visualisation
+                looks at where schools are, which sector runs them, how big they are, and how this has changed from 2008 to 2025.</p>
         </div>
 
-        <h2>Where are Australia's Schools?</h2>
-        <div class="pure-g">
-            <div class="pure-u-1-3 panel">
-                <div id="symbol_map" class="chart"></div>
+        <!-- Section 1 -->
+        <div class="section blue">
+            <div class="section-header">
+                <span class="number">1</span>
+                <h2>Where are Australia's schools?</h2>
+                <p class="section-text">Schools are spread across the country, but most are along the east and south-east coast.</p>
             </div>
-            <div class="pure-u-1-3 panel">
-                <div id="choropleth_map" class="chart"></div>
+            <!-- Symbol Map -->
+            <div class="pure-g">
+                <div class="pure-u-2-3">
+                    <div class="card"><div id="symbol_map" class="chart"></div></div>
+                </div>
+                <div class="pure-u-1-3">
+                    <div class="card text-card">
+                        <h3>Key observations</h3>
+                        <p>Each dot is one of Australia's <b>11,039 school locations</b> in 2025, coloured by sector.</p>
+                        <ul>
+                            <li>Schools cluster along the <b>east and south-east coast</b>, especially around the capital cities.</li>
+                            <li><b>3 in 4 schools</b> are in NSW, Victoria or Queensland.</li>
+                            <li>Inland and across the north, schools are <b>sparse and far apart</b>.</li>
+                            <li><b>Government schools</b> make up about two thirds of all schools and are found almost everywhere, including the most isolated areas.</li>
+                        </ul>
+                        <p class="hover-title">Hover over a dot to see:</p>
+                        <ul>
+                            <li>School name</li>
+                            <li>Suburb and state</li>
+                            <li>Sector</li>
+                            <li>School type</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-            <div class="pure-u-1-3 panel">
-                <div id="bar_chart" class="chart"></div>
+
+            <!-- Other Charts -->
+            <div class="pure-g">
+                <div class="pure-u-1-2">
+                    <div class="card"><div id="choropleth_map" class="chart"></div></div>
+                </div>
+                <div class="pure-u-1-2">
+                    <div class="card"><div id="bar_chart" class="chart"></div></div>
+                </div>
             </div>
         </div>
+
+        <!-- Section 2 -->
+        <div class="section green">
+            <div class="section-header">
+                <span class="number">2</span>
+                <h2>Who runs Australia's schools?</h2>
+                <p class="section-text">Government, Catholic and Independent schools differ in how many there are, what type they are and how big they are.</p>
+            </div>
+            <div class="pure-g">
+                <div class="pure-u-1-3">
+                    <div class="card"><div id="sector_by_state" class="chart"></div></div>
+                </div>
+                <div class="pure-u-1-3">
+                    <div class="card"><div id="heatmap" class="chart"></div></div>
+                </div>
+                <div class="pure-u-1-3">
+                    <div class="card"><div id="size_by_sector" class="chart"></div></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 3 -->
+        <div class="section orange">
+            <div class="section-header">
+                <span class="number">3</span>
+                <h2>Does location change the school landscape?</h2>
+                <p class="section-text">The mix and size of schools changes between major cities and remote areas.</p>
+            </div>
+            <!-- Proportional Symbol Map -->
+            <div class="pure-g">
+                <div class="pure-u-2-3">
+                    <div class="card"><div id="remoteness_map" class="chart"></div></div>
+                </div>
+                <div class="pure-u-1-3">
+                    <div class="card text-card">
+                        <h3>Key observations</h3>
+                        <ul>
+                            <li><b>56% of schools</b> are in major cities. Only about <b>6%</b> are in remote or very remote areas.</li>
+                            <li>Most remote and very remote schools are in the <b>NT, Queensland and WA</b>.</li>
+                            <li>The further from a city, the more likely a school is <b>government run</b>: about <b>60%</b> in major cities, rising to about <b>80%</b> in remote areas.</li>
+                            <li>Remote schools are <b>much smaller</b>. The median school in a major city has <b>432 students</b>, compared with about <b>50</b> in very remote areas.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Other Charts -->
+            <div class="pure-g">
+                <div class="pure-u-1-2">
+                    <div class="card"><div id="sector_by_remoteness" class="chart"></div></div>
+                </div>
+                <div class="pure-u-1-2">
+                    <div class="card"><div id="size_by_remoteness" class="chart"></div></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 4 -->
+        <div class="section purple">
+            <div class="section-header">
+                <span class="number">4</span>
+                <h2>How has the school landscape changed over time?</h2>
+                <p class="section-text">The number of schools and each sector's share of students have shifted between 2008 and 2025.</p>
+            </div>
+            <div class="pure-g">
+                <div class="pure-u-1-3">
+                    <div class="card"><div id="schools_over_time" class="chart"></div></div>
+                </div>
+                <div class="pure-u-1-3">
+                    <div class="card"><div id="enrolment_share" class="chart"></div></div>
+                </div>
+                <div class="pure-u-1-3">
+                    <div class="card"><div id="sector_change" class="chart"></div></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p><b>Data sources:</b> ACARA School Profile (2008 to 2025) and School Location (2025) datasets,
+                Australian Bureau of Statistics student enrolment tables, Natural Earth state boundaries.</p>
+        </div>
+
     </div>
 
     <script type="text/javascript">
         var vg_1 = "graph_1_symbolmap/js/graph_1_symbolmap.vg.json";
         var vg_2 = "graph_2_choroplethmap/graph_2_choroplethmap.vg.json";
         var vg_3 = "graph_3_horizontalbarchart/graph_3_horizontalbarchart.vg.json";
+        var vg_4 = "graph_4_segmentedbarchart/graph_4_segmentedbarchart.json";
+        var vg_5 = "graph_5_heatmap/graph_5_heatmap.json";
+        var vg_6 = "graph_6_boxplot/graph_6_boxplot.json";
+        var vg_7 = "graph_7_proportionalsymbolmap/graph_7_proportionalsymbolmap.json";
+        var vg_8 = "graph_8_segmentedbarchart/graph_8_segmentedbarchart.json";
+        var vg_9 = "graph_9_boxplot/graph_9_boxplot.json";
+        var vg_10 = "graph_10_mutiplelinecharts/graph_10_mutliplelinecharts.json";
+        var vg_11 = "graph_11_areachart/graph_11_areachart.json";
+        var vg_12 = "graph_12_dumbbellchart/graph_12_dumbbellchart.json";
 
-        vegaEmbed("#symbol_map", vg_1, { "actions": false }).then(function (result) {
+        // Options used by every chart: hide the "..." menu and use DM Sans for all chart text
+        var opt = { "actions": false, "renderer": "svg", "config": { "font": "DM Sans" } };
+
+        vegaEmbed("#symbol_map", vg_1, opt).then(function (result) {
             // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
         }).catch(console.error);
- 
-        vegaEmbed("#choropleth_map", vg_2, { "actions": false }).then(function (result) {
+
+        vegaEmbed("#choropleth_map", vg_2, opt).then(function (result) {
             // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
         }).catch(console.error);
- 
-        vegaEmbed("#bar_chart", vg_3, { "actions": false }).then(function (result) {
+
+        vegaEmbed("#bar_chart", vg_3, opt).then(function (result) {
+            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+
+        vegaEmbed("#sector_by_state", vg_4, opt).then(function (result) {
+            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+
+        vegaEmbed("#heatmap", vg_5, opt).then(function (result) {
+            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+
+        vegaEmbed("#size_by_sector", vg_6, opt).then(function (result) {
+            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+
+        vegaEmbed("#remoteness_map", vg_7, opt).then(function (result) {
+            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+
+        vegaEmbed("#sector_by_remoteness", vg_8, opt).then(function (result) {
+            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+
+        vegaEmbed("#size_by_remoteness", vg_9, opt).then(function (result) {
+            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+
+        vegaEmbed("#schools_over_time", vg_10, opt).then(function (result) {
+            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+
+        vegaEmbed("#enrolment_share", vg_11, opt).then(function (result) {
+            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+
+        vegaEmbed("#sector_change", vg_12, opt).then(function (result) {
             // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
         }).catch(console.error);
     </script>

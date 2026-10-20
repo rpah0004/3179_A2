@@ -4,8 +4,8 @@
     "text": "Change in sector share by state",
     "subtitle": "Share of each state's schools in 2008 vs 2025"
   },
-  "width": 300,
-  "height": 220,
+  "width": "container",
+  "height": 250,
   "data": {
     "url": "https://raw.githubusercontent.com/rpah0004/3179_A2/refs/heads/main/Data/School%20Profile%202008-2025.csv",
     "format": {

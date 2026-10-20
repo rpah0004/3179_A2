@@ -3,7 +3,7 @@ body * {
 }
 
 body {
-    background-color: white;
+    background-color: #f7f8fb;
     margin: 0;
 }
 
@@ -14,47 +14,116 @@ body {
 }
 
 .header {
-    border-bottom: 2px solid black;
+    text-align: center;
+    margin-bottom: 20px;
 }
 
 .author {
     margin: 0;
     font-size: 14px;
     color: gray;
+    text-align: left;
 }
 
 h1 {
-    text-align: center;
     font-size: 42px;
     margin: 0;
+    color: #1d2b4f;
+}
+
+.subtitle {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 5px 0;
+    color: #1d2b4f;
 }
 
 .intro {
-    text-align: center;
-    margin-top: 10px;
-    margin-bottom: 25px;
+    max-width: 800px;
+    margin: 10px auto 0;
 }
 
+.section {
+    border-radius: 12px;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.blue   { background-color: #e6eef8; }
+.green  { background-color: #e5f2ea; }
+.orange { background-color: #fbeae0; }
+.purple { background-color: #ebe8f7; }
+
+.section-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+}
+
+.number {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.blue .number   { background-color: #2f6db5; }
+.green .number  { background-color: #1f6b4f; }
+.orange .number { background-color: #d0612b; }
+.purple .number { background-color: #4b3c99; }
+
 h2 {
-    border-bottom: 1px solid black;
-    padding: 10px 0;
     margin: 0;
+    color: #1d2b4f;
+}
+
+.section-text {
+    margin: 0 0 0 10px;
+    font-style: italic;
+    font-size: 14px;
 }
 
 .pure-g {
-    border-bottom: 2px solid black;
+    margin-bottom: 10px;
 }
 
-.panel {
-    box-sizing: border-box;
+.card {
+    background-color: white;
+    border-radius: 10px;
     padding: 15px;
-    border-left: 1px solid black;
-}
-
-.panel:first-child {
-    border-left: none;
+    margin: 5px;
+    height: 100%;
+    box-sizing: border-box;
 }
 
 .chart {
     width: 100%;
+}
+
+.text-card h3 {
+    margin-top: 0;
+    color: #1d2b4f;
+}
+
+.text-card p,
+.text-card li {
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+.hover-title {
+    font-weight: bold;
+    margin-bottom: 0;
+}
+
+.footer {
+    text-align: right;
+    font-size: 13px;
+    color: gray;
 }
