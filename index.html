@@ -25,7 +25,6 @@
     <div class="page">
 
         <div class="header">
-            <p class="author">Rebecca Pahljina 34960813, FIT3179, Studio 16</p>
             <h1>School Types Across Australia</h1>
             <p class="subtitle">Where are Australia's schools, who runs them, and how is this changing?</p>
             <p class="intro">Australia's schools vary across states, sectors and levels of remoteness. This visualisation
@@ -39,7 +38,6 @@
                 <h2>Where are Australia's schools?</h2>
                 <p class="section-text">Schools are spread across the country, but most are along the east and south-east coast.</p>
             </div>
-            <!-- Symbol Map -->
             <div class="pure-g">
                 <div class="pure-u-2-3">
                     <div class="card"><div id="symbol_map" class="chart"></div></div>
@@ -65,7 +63,6 @@
                 </div>
             </div>
 
-            <!-- Other Charts -->
             <div class="pure-g">
                 <div class="pure-u-1-2">
                     <div class="card"><div id="choropleth_map" class="chart"></div></div>
@@ -84,14 +81,28 @@
                 <p class="section-text">Government, Catholic and Independent schools differ in how many there are, what type they are and how big they are.</p>
             </div>
             <div class="pure-g">
-                <div class="pure-u-1-3">
+                <div class="pure-u-1-2">
                     <div class="card"><div id="sector_by_state" class="chart"></div></div>
                 </div>
-                <div class="pure-u-1-3">
+                <div class="pure-u-1-2">
+                    <div class="card"><div id="size_by_sector" class="chart"></div></div>
+                </div>
+            </div>
+            <div class="pure-g">
+                <div class="pure-u-2-3">
                     <div class="card"><div id="heatmap" class="chart"></div></div>
                 </div>
                 <div class="pure-u-1-3">
-                    <div class="card"><div id="size_by_sector" class="chart"></div></div>
+                    <div class="card text-card">
+                        <h3>Key observations</h3>
+                        <ul>
+                            <li><b>Primary schools</b> are the most common type in every sector except Independent.</li>
+                            <li><b>3 in 4 primary schools</b> are government run.</li>
+                            <li>Independent schools are different: <b>over half are combined schools</b>, teaching both primary and secondary students on one campus.</li>
+                            <li>Independent schools run <b>almost half of all combined schools</b> in Australia, more than the government sector.</li>
+                            <li>Catholic and government schools have a <b>very similar mix</b>, with about 69% primary in both.</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
@@ -103,7 +114,6 @@
                 <h2>Does location change the school landscape?</h2>
                 <p class="section-text">The mix and size of schools changes between major cities and remote areas.</p>
             </div>
-            <!-- Proportional Symbol Map -->
             <div class="pure-g">
                 <div class="pure-u-2-3">
                     <div class="card"><div id="remoteness_map" class="chart"></div></div>
@@ -121,7 +131,6 @@
                 </div>
             </div>
 
-            <!-- Other Charts -->
             <div class="pure-g">
                 <div class="pure-u-1-2">
                     <div class="card"><div id="sector_by_remoteness" class="chart"></div></div>
@@ -140,21 +149,39 @@
                 <p class="section-text">The number of schools and each sector's share of students have shifted between 2008 and 2025.</p>
             </div>
             <div class="pure-g">
-                <div class="pure-u-1-3">
+                <div class="pure-u-1-2">
                     <div class="card"><div id="schools_over_time" class="chart"></div></div>
                 </div>
-                <div class="pure-u-1-3">
+                <div class="pure-u-1-2">
                     <div class="card"><div id="enrolment_share" class="chart"></div></div>
                 </div>
-                <div class="pure-u-1-3">
+            </div>
+            <div class="pure-g">
+                <div class="pure-u-2-5">
+                    <div class="card text-card">
+                        <h3>Key observations</h3>
+                        <ul>
+                            <li>Independent schools grew the fastest, from <b>1,073 in 2008 to 1,250 in 2025</b> (up 16%). Government schools grew by less than 1%.</li>
+                            <li>The <b>Independent share rose in every state except the ACT</b>, with the biggest jumps in <b>Queensland</b> (10.3% to 13.2%) and <b>SA</b> (12.6% to 14.8%).</li>
+                            <li>The <b>Government share fell in almost every state</b>, though government schools still make up about 70% of all schools.</li>
+                            <li>The <b>Catholic share barely changed</b>, staying around 17% nationally.</li>
+                        </ul>
+                        <p>Use the <b>Sector</b> dropdown under the chart to switch between sectors.</p>
+                    </div>
+                </div>
+                <div class="pure-u-3-5">
                     <div class="card"><div id="sector_change" class="chart"></div></div>
                 </div>
             </div>
         </div>
 
         <div class="footer">
-            <p><b>Data sources:</b> ACARA School Profile (2008 to 2025) and School Location (2025) datasets,
-                Australian Bureau of Statistics student enrolment tables, Natural Earth state boundaries.</p>
+            <p><b>Data sources:</b>
+                <a href="https://www.abs.gov.au/statistics/people/education/schools/2025" target="_blank">Australian Bureau of Statistics</a> |
+                <a href="https://www.acara.edu.au/contact-us/acara-data-access" target="_blank">ACARA Data Access</a> |
+                <a href="https://www.naturalearthdata.com/downloads/10m-cultural-vectors/10m-admin-1-states-provinces/" target="_blank">Natural Earth</a>
+            </p>
+            <p class="author">Rebecca Pahljina | FIT3179 | Studio 16 | 2026</p>
         </div>
 
     </div>
@@ -174,7 +201,7 @@
         var vg_12 = "graph_12_dumbbellchart/graph_12_dumbbellchart.json";
 
         // Options used by every chart: hide the "..." menu and use DM Sans for all chart text
-        var opt = { "actions": false, "renderer": "svg", "config": { "font": "DM Sans" } };
+        var opt = { "actions": false, "renderer": "svg", "config": { "font": "DM Sans", "background": "transparent", "view": { "stroke": null } } };
 
         vegaEmbed("#symbol_map", vg_1, opt).then(function (result) {
             // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view

@@ -18,13 +18,6 @@ body {
     margin-bottom: 20px;
 }
 
-.author {
-    margin: 0;
-    font-size: 14px;
-    color: gray;
-    text-align: left;
-}
-
 h1 {
     font-size: 42px;
     margin: 0;
@@ -94,7 +87,7 @@ h2 {
 }
 
 .card {
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.55);
     border-radius: 10px;
     padding: 15px;
     margin: 5px;
@@ -123,7 +116,22 @@ h2 {
 }
 
 .footer {
-    text-align: right;
+    text-align: center;
     font-size: 13px;
     color: gray;
+    margin-top: 10px;
+}
+
+.footer a {
+    color: #2f6db5;
+}
+
+.author {
+    margin-top: 5px;
+}
+
+#schools_over_time .vega-embed,
+#schools_over_time svg {
+    width: 100%;
+    height: auto;
 }

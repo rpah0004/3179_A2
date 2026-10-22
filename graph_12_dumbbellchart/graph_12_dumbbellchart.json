@@ -2,10 +2,11 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
     "text": "Change in sector share by state",
-    "subtitle": "Share of each state's schools in 2008 vs 2025"
+    "subtitle": "Share of each state's schools in 2008 vs 2025",
+    "anchor": "start"
   },
   "width": "container",
-  "height": 250,
+  "height": 320,
   "data": {
     "url": "https://raw.githubusercontent.com/rpah0004/3179_A2/refs/heads/main/Data/School%20Profile%202008-2025.csv",
     "format": {
@@ -125,6 +126,9 @@
           "field": "Calendar_Year",
           "type": "nominal",
           "title": "Year",
+          "legend": {
+            "orient": "bottom"
+          },
           "scale": {
             "domain": [
               2008,
